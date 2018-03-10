@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import App from './components/App';
 import News from './components/News';
 
+main();
+
 function main() {
     var app = document.createElement('div');
     app.id = 'app';

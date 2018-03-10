@@ -34,15 +34,6 @@ const config = {
       { test:/\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, loader:'url-loader?limit=5000'} // 限制大小小于5k
     ]
   },
-
-  /*eslint: {
-    configFile: '.eslintrc' // Rules for eslint
-  },*/
-
-  postcss: [
-    require('autoprefixer') //调用autoprefixer插件，例如 display: flex
-  ],
-
   // 插件，用于生产模版和各项功能
   plugins: [
     // html 模板插件
@@ -51,11 +42,6 @@ const config = {
     }),
     // 热加载插件
     new webpack.HotModuleReplacementPlugin(),
-
-    // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
-    new webpack.DefinePlugin({
-      __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
-    }),
   ],
 
   // 配置webpack开发服务功能  开发环境
@@ -65,7 +51,6 @@ const config = {
     //设置基本目录结构
     contentBase: resolve(__dirname, 'dist'),//本地服务器所加载的页面所在的目录
     publicPath:'/',
-    colors: true, //终端中输出结果为彩色
     historyApiFallback: true, //不跳转
     inline: true, //实时刷新
     hot: true  // 使用热加载插件 HotModuleReplacementPlugin

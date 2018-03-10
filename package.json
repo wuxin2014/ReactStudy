@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build"
+    "dev": "set NODE_ENV=dev&webpack-dev-server --open --progress --colors",
+    "build": "rm -rf ./build && set NODE_ENV=production&webpack --config ./webpack.production.config.js --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,15 @@
     "url": "https://github.com/wuxin2014/ReactStudy/issues"
   },
   "homepage": "https://github.com/wuxin2014/ReactStudy#readme",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2"
+  },
   "devDependencies": {
+    "autoprefixer": "^8.1.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -25,16 +33,12 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.9",
+    "file-loader": "^1.1.11",
     "html-webpack-plugin": "^2.30.1",
+    "postcss-loader": "^2.1.1",
     "style-loader": "^0.19.1",
+    "url-loader": "^1.0.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
-  },
-  "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "babel-runtime": "^6.26.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2"
   }
 }

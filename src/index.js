@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import App from './components/App.jsx';
-import News from './components/News.jsx';
-import Message from './components/Message.jsx';
-
-main();
+import App from './components/App';
+import News from './components/News';
 
 function main() {
     var app = document.createElement('div');
@@ -20,6 +17,6 @@ function main() {
                 <Route path="/news" component={News}>
                 </Route>
             </Route>
-        </Router>  
+        </Router>
     ), document.getElementById('app'));
 }

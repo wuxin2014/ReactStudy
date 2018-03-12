@@ -41,6 +41,17 @@ query：为loaders提供额外的设置选项（可选）。
 5. 扩展性强，插件机制完善
 
 
+# babel-polyfill VS babel-runtime VS babel-plugin-transform-runtime
+1. 首先 babel-polyfill 是对所有的API进行全局设置。并且会污染全局变量。
+2. babel-runtime 需要对你需要的API，如：Object.assign()。会先require()
+3. babel-plugin-transform-runtime 最推荐。它不需要require()也不会全局污染，并且，更厉害的是它是按需打包，全自动。
+
+
+# Cannot use [chunkhash] for chunk in '[name].[chunkhash].js' (use [hash] instead)
+热更新(HMR)不能和[chunkhash]同时使用。
+1. 如果是开发环境，将配置文件中的chunkhash 替换为hash
+2. 如果是生产环境，不要使用参数 --hot
+
 # 前端模块系统的演进
 # CommonJS
 require("module");

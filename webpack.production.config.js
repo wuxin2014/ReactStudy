@@ -1,25 +1,17 @@
-let pkg = require('./package.json');
-let path = require('path');
-let webpack = require('webpack');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-
-//一些常用路径
-let ROOT_PATH = path.resolve(__dirname);
-let APP_PATH = path.resolve(ROOT_PATH, 'src');
-let BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
-let NODE_MODULES = path.resolve(ROOT_PATH, 'node_modules');
-
+const pkg = require('./package.json');
+const {resolve} = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: path.resolve(APP_PATH, 'index.js'),
+    app: resolve(__dirname, 'src/index.js'),
     // 将 第三方依赖（node_modules中的） 单独打包
     vendor: Object.keys(pkg.dependencies)
   },
   output: {
-    path: BUILD_PATH,
+    path: resolve(__dirname, 'dist'),
     filename: "[name].[chunkhash:8].js"
   },
 
@@ -29,7 +21,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets: ['react', 'es2015'] } },
+      { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader'},
       {
         test: /\.less$/,
         use:[
@@ -44,18 +36,16 @@ module.exports = {
               plugins: (loader) => [
                 require('postcss-import')({root: loader.resourcePath}),
                 require('autoprefixer')(), //css 浏览器兼容
-                require('cssnano')() //压缩css
+                // require('cssnano')() //压缩css
               ]
             }
           },
           {
             loader: "less-loader"
           }
-        ]
-        // exclude: /node_modules/,
-        // loader: 'style-loader!css-loader!postcss-loader!less-loader'
+        ],
+        exclude: /node_modules/,
       },
-      // { test: /\.less$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('style-loader!css-loader!postcss-loader!less-loader') },
       {
         test: /\.css$/,
         use:[
@@ -70,21 +60,18 @@ module.exports = {
               plugins: (loader) => [
                 require('postcss-import')({root: loader.resourcePath}),
                 require('autoprefixer')(), //css 浏览器兼容
-                require('cssnano')() //压缩css
+                // require('cssnano')() //压缩css
               ]
             }
           }
         ]
-        // exclude: /node_modules/,
-        // loader: 'style-loader!css-loader!postcss-loader'
       },
-      // { test: /\.css$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('style-loader!css-loader!postcss-loader?name=css/[name].[chunkhash:8].[ext]') },
       { test:/\.(png|gif|jpg|jpeg|bmp)$/i, loader:'url-loader?limit=5000&name=img/[name].[chunkhash:8].[ext]' },  // 限制大小5kb
       { test:/\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, loader:'url-loader?limit=5000&name=fonts/[name].[chunkhash:8].[ext]'} // 限制大小小于5k
     ]
   },
   plugins: [
-    // webpack 内置的 banner-plugin
+    // webpack 内置的banner-plugin
     new webpack.BannerPlugin("Copyright by zmy"),
     // html 模板插件
     new HtmlWebpackPlugin({
@@ -111,7 +98,6 @@ module.exports = {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        //supresses warnings, usually from module minification
         warnings: false
       }
     }),
@@ -128,4 +114,4 @@ module.exports = {
       __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
     })
   ]
-}
+};

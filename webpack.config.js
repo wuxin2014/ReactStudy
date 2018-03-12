@@ -7,13 +7,12 @@ const config = {
   // 入口文件的配置项
   entry: {
     app: resolve(__dirname, 'src/index.js'),
-    test: resolve(__dirname, 'src/test.js'),
   },
   // 出口文件的配置项
   output: {
     publicPath: '/',
     path: resolve(__dirname, 'dist'),
-    filename: '/[name].[hash].js'
+    filename: '[name].[hash].js'
   },
   // 模块：例如解读CSS,图片如何转换，压缩
   module: {
@@ -32,7 +31,6 @@ const config = {
     // html 模板插件
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.html',
-      pathname
     }),
     // 热加载插件
     new webpack.HotModuleReplacementPlugin(),

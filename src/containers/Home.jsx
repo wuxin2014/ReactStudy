@@ -23,6 +23,8 @@ export default class Home extends React.Component {
               state: { price: 18 }
             }}>通过Link传递参数</Link>
           </li>
+          <li><Link to="/react/todo">ReactTodoDemo</Link></li>
+          <li><Link to="/react/redux/todo">ReduxTodoDemo</Link></li>
         </ul>
       </div>
     );

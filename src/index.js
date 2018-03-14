@@ -1,22 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import App from './components/App';
-import News from './components/News';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import RouteMap from './router/routerMap';
+import todoApp from './reducers';
+const store = createStore(todoApp);
 
-const main = () => {
-  const app = document.createElement('div');
-  app.id = 'app';
-  document.body.appendChild(app);
-
-  ReactDOM.render((
-    <Router>
-      <Route  component={App}>
-        <Route path="/news" component={News}>
-        </Route>
-      </Route>
-    </Router>
-  ), document.getElementById('app'));
-};
-
-main();
+ReactDOM.render(
+  <Provider store = {store}>
+    <RouteMap />
+  </Provider>,
+  document.getElementById('root')
+);

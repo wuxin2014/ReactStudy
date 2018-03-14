@@ -48,7 +48,8 @@ const config = {
         pathRewrite: {"^/api": ""}
       }
     },
-    progress: true
+    historyApiFallback: true, // 注意这个属性，浏览器刷新页面是否还能找的到
+    progress: true,
   },
   resolve: {
     extensions:['.js','.jsx']

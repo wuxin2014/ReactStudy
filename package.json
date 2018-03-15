@@ -4,20 +4,11 @@
   "description": "",
   "scripts": {
     "dev": "set NODE_ENV=dev & webpack-dev-server",
-    "build": "set NODE_ENV=production & webpack --config ./webpack.production.config.js"
+    "build": "set NODE_ENV=production & webpack --config ./webpack.production.config.js",
+    "eslint": "eslint --ext .js src"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wuxin2014/ReactStudy.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wuxin2014/ReactStudy/issues"
-  },
-  "homepage": "https://github.com/wuxin2014/ReactStudy#readme",
   "dependencies": {
+    "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
@@ -27,20 +18,31 @@
   "devDependencies": {
     "autoprefixer": "^8.1.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.9",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^2.30.1",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
     "postcss-loader": "^2.1.1",
+    "pre-commit": "^1.2.2",
     "style-loader": "^0.19.1",
     "url-loader": "^1.0.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   }
+  /*"pre-commit": [
+    "eslint"
+  ]*/
 }

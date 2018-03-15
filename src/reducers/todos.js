@@ -5,12 +5,12 @@ import {
 
 
 const todo = (state, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case addItem:
-
+      return state;
       break;
     case deleteItem:
-
+      return state;
       break;
     default:
       return state;
@@ -18,12 +18,13 @@ const todo = (state, action) => {
   }
 };
 
-const todos = (state=[], action) => {
-  switch(action.type) {
+const todos = (state = [], action) => {
+  switch (action.type) {
     case addItem:
-        return state;
+      return state;
       break;
     case deleteItem:
+      return state;
       break;
     default:
       return state;

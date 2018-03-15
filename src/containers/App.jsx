@@ -10,15 +10,15 @@ import ReactTodoList from '../containers/ReactTodoList';
 // 如果你的Home/User/NotFound是互斥的，那还要加上Switch
 
 export default class App extends React.Component {
-  render(){ 
-    return(
+  render() {
+    return (
       <div>
         <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route path='/user/:id' component={User} />
-          <Route path='/react/todo' component={ReactTodoList} />
-          <Route path='/react/redux/todo' component={ReduxTodo} />
-          <Route path='*' component={NotFound}/>
+          <Route exact path="/" component={Home} />
+          <Route path="/user/:id" component={User} />
+          <Route path="/react/todo" component={ReactTodoList} />
+          <Route path="/react/redux/todo" component={ReduxTodo} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </div>
     );

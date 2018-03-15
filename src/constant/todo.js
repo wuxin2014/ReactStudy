@@ -3,5 +3,5 @@ const deleteItem = 'deleteItem';
 
 module.exports = {
   addItem,
-  deleteItem,
+  deleteItem
 };

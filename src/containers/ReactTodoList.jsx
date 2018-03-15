@@ -1,19 +1,19 @@
 import React from 'react';
 import TodoItem from '../components/common/TodoItem';
 
-class ReactTodoList extends React.Component{
-  constructor(props){
+class ReactTodoList extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
       data: [
         'jajaj'
-      ],
+      ]
     };
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
 
-  addItem(){
+  addItem() {
     console.log(this.input.value);
     const oldArr = this.state.data;
     oldArr.push(this.input.value);
@@ -25,24 +25,28 @@ class ReactTodoList extends React.Component{
 
   deleteItem(key) {
     const oldArr = this.state.data;
-    const newData = oldArr.filter((item, index) => index !== key);
+    const newData = oldArr.filter((item, index) => {
+      return index !== key;
+    });
     this.setState({
       data: newData
     });
   }
   render() {
-    const data = this.state.data;
+    const {data} = this.state;
     return (
       <div>
         <input
-            type="text"
-            placeholder="请输入内容"
-            ref={(inputRef) => {this.input = inputRef}}
+          type="text"
+          placeholder="请输入内容"
+          ref={(inputRef) => {
+            this.input = inputRef;
+          }}
         />
         <button onClick={this.addItem}>确定</button>
         {
           data.map((item, index) => {
-            return <TodoItem key={index} id={index} data={item} deleteItem={this.deleteItem}/>
+            return <TodoItem key={index} id={index} data={item} deleteItem={this.deleteItem} />;
           })
         }
       </div>

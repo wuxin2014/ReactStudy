@@ -11,8 +11,8 @@ import {Link} from 'react-router-dom';
  */
 
 export default class Home extends React.Component {
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <ul>
           <li><Link to="/user/1">进入user界面</Link></li>
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
             <Link to={{
               pathname: '/user/1',
               search: '?sort=name',
-              state: { price: 18 }
+              state: {price: 18}
             }}>通过Link传递参数</Link>
           </li>
           <li><Link to="/react/todo">ReactTodoDemo</Link></li>

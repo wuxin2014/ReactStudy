@@ -12,32 +12,32 @@ module.exports = {
   },
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: "[name].[chunkhash:8].js"
+    filename: '[name].[chunkhash:8].js'
   },
 
-  resolve:{
-    extensions:['.js','.jsx']
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
 
   module: {
     loaders: [
-      { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.less$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('style', 'css!postcss!less') },
-      { test: /\.css$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('style', 'css!postcss') },
-      { test:/\.(png|gif|jpg|jpeg|bmp)$/i, loader:'url-loader?limit=5000&name=img/[name].[chunkhash:8].[ext]' },
-      { test:/\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, loader:'url-loader?limit=5000&name=fonts/[name].[chunkhash:8].[ext]'}
+      {test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader'},
+      {test: /\.less$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('style', 'css!postcss!less')},
+      {test: /\.css$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract('style', 'css!postcss')},
+      {test: /\.(png|gif|jpg|jpeg|bmp)$/i, loader: 'url-loader?limit=5000&name=img/[name].[chunkhash:8].[ext]'},
+      {test: /\.(png|woff|woff2|svg|ttf|eot)($|\?)/i, loader: 'url-loader?limit=5000&name=fonts/[name].[chunkhash:8].[ext]'}
     ]
   },
   plugins: [
     // webpack 内置的banner-plugin
-    new webpack.BannerPlugin("Copyright by zmy"),
+    new webpack.BannerPlugin('Copyright by zmy'),
     // html 模板插件
     new HtmlWebpackPlugin({
-      template: __dirname + '/src/index.html'
+      template: resolve(__dirname, 'src/index.html')
     }),
     // 定义为生产环境，编译 React 时压缩到最小
     new webpack.DefinePlugin({
-      'process.env':{
+      'process.env': {
         'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
       }
     }),
@@ -45,12 +45,12 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
-        postcss: function(){
+        postcss: function() {
           return [
-            require("autoprefixer")({
-              browsers: ['ie>=8','>1% in CN']
+            require('autoprefixer')({
+              browsers: ['ie>=8', '>1% in CN']
             })
-          ]
+          ];
         }
       }
     }),
@@ -65,11 +65,11 @@ module.exports = {
     // 提供公共代码
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: "/js/[name].[chunkhash:8].js"
+      filename: '/js/[name].[chunkhash:8].js'
     }),
     // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
     new webpack.DefinePlugin({
-      __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
+      __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV === 'dev') || 'false'))
     })
   ]
 };

@@ -1,34 +1,30 @@
 import {
-  addItem,
-  deleteItem
+  ADD_TODO,
+  TOGGLE_TODO
 } from '../constant/todo';
-
-
-const todo = (state, action) => {
-  switch (action.type) {
-    case addItem:
-      return state;
-      break;
-    case deleteItem:
-      return state;
-      break;
-    default:
-      return state;
-      break;
-  }
-};
 
 const todos = (state = [], action) => {
   switch (action.type) {
-    case addItem:
-      return state;
-      break;
-    case deleteItem:
-      return state;
-      break;
+    case ADD_TODO:
+      return [
+        ...state,
+        {
+          text: action.text,
+          id: action.id,
+          completed: false
+        }
+      ];
+    case TOGGLE_TODO:
+      return state.map((todo, index) => {
+        if (index === action.index) {
+          return Object.assign({}, todo, {
+            completed: !todo.completed
+          });
+        }
+        return todo;
+      });
     default:
       return state;
-      break;
   }
 };
 

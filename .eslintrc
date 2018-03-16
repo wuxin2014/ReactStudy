@@ -48,7 +48,6 @@
     "arrow-body-style": ["error", "always"], // 箭头函数
     "arrow-parens": ["error", "always"],
     "consistent-return": ["error", {"treatUndefinedAsUnspecified": true}],
-    "no-unreachable": 0,
     "no-script-url": 0,
     "global-require": 0,
     "import/no-unresolved": 0,

@@ -1,22 +1,15 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import AddTodo from './AddTodo';
+import ReduxTodoContainer from './ReduxTodoContainer';
 
-class ReduxTodo extends React.Component {
-  render() {
-    return (
-      <div>
-        <p>todo</p>
-      </div>
-    );
-  }
-}
 
-const mapStatesToProps = (state) => {
-  return {};
+const ReduxTodo = () => {
+  return (
+    <div>
+      <AddTodo />
+      <ReduxTodoContainer />
+    </div>
+  );
 };
 
-const mapDispatchToProps = (dispatch) => {
-
-};
-
-export default connect(mapStatesToProps, mapDispatchToProps)(ReduxTodo);
+export default ReduxTodo;

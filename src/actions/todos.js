@@ -1,19 +1,29 @@
 import {
-  addItem,
-  deleteItem
+  ADD_TODO,
+  TOGGLE_TODO,
+  SET_VISIBILITY_FILTER
 } from '../constant/todo';
+
+let idIndex = 0;
 
 export const addTodo = (text) => {
   return {
-    type: addItem,
-    text
+    type: ADD_TODO,
+    text,
+    id: idIndex++
   };
 };
 
-export const deleteTodo = (index) => {
+export const toggleTodo = (id) => {
   return {
-    type: deleteItem,
-    index
+    type: TOGGLE_TODO,
+    id
   };
 };
 
+export const setVisibilityFilter = (filter) => {
+  return {
+    type: SET_VISIBILITY_FILTER,
+    filter
+  };
+};

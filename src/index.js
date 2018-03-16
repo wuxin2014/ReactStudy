@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
 import RouteMap from './router/routerMap';
-import todoApp from './reducers';
+import configureStore from './store/configureStore';
 
-const store = createStore(todoApp);
+// 创建 Redux 的 store 对象
+const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>

@@ -6,6 +6,7 @@ import User from '../containers/User';
 import NotFound from '../containers/NotFound';
 import ReduxTodo from '../containers/ReduxTodo';
 import ReactTodoList from '../containers/ReactTodoList';
+import Counter from '../containers/Counter';
 
 /**
  * BrowserRouter的属性
@@ -28,6 +29,7 @@ class RouterMap extends React.Component {
             <Route path="/user/:id" component={User} />
             <Route path="/react/todo" component={ReactTodoList} />
             <Route path="/react/redux/todo" component={ReduxTodo} />
+            <Route path="/redux/counter" component={Counter} />
             <Route path="*" component={NotFound} />
           </Switch>
         </div>

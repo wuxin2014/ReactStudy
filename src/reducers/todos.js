@@ -1,7 +1,7 @@
 import {
   ADD_TODO,
   TOGGLE_TODO
-} from '../constant/todo';
+} from '../constant';
 
 const todos = (state = [], action) => {
   switch (action.type) {

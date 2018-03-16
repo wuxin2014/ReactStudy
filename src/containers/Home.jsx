@@ -25,6 +25,7 @@ export default class Home extends React.Component {
           </li>
           <li><Link to="/react/todo">ReactTodoDemo</Link></li>
           <li><Link to="/react/redux/todo">ReduxTodoDemo</Link></li>
+          <li><Link to="/redux/counter">ReduxCounter</Link></li>
         </ul>
       </div>
     );

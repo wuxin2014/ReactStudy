@@ -2,7 +2,7 @@ import {
   ADD_TODO,
   TOGGLE_TODO,
   SET_VISIBILITY_FILTER
-} from '../constant/todo';
+} from '../constant';
 
 let idIndex = 0;
 

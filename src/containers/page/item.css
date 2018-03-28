@@ -1,0 +1,23 @@
+.item_wrap {
+  height: 120px;
+  border: 1px solid #e5e5e5;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.imgStyle {
+  width: 100px;
+  height: 100px;
+  float: left;
+  border: 1px solid #e5e5e5;
+}
+
+.item_wrap dt {
+  color: #bb0d0d;
+}
+
+.item_wrap dd {
+  color: #6e6e6e;
+}

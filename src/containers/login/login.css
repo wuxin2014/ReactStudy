@@ -1,0 +1,17 @@
+.login_wrap {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+}
+
+.login_wrap p {
+  padding-left: 10px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.login_wrap p span {
+  color: red;
+}

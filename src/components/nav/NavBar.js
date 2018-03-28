@@ -5,8 +5,8 @@ import './nav.css';
 const NavBar = () => {
   return (
     <div>
-      <NavLink to="/react/demo" className="blue">ReactDemo</NavLink>
-      <NavLink to="/redux/demo" activeClassName="active">ReduxDemo</NavLink>
+      <NavLink to="/react/todo" className="blue">ReactDemo</NavLink>
+      <NavLink to="/redux/counter" activeClassName="active">ReduxDemo</NavLink>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import NotFound from '../containers/NotFound';
 import ReduxTodo from '../containers/ReduxTodo';
 import ReactTodoList from '../containers/ReactTodoList';
 import Counter from '../containers/Counter';
+import IndexPage from '../containers/page/IndexPage';
 
 /**
  * BrowserRouter的属性
@@ -16,6 +17,7 @@ import Counter from '../containers/Counter';
  * V4中现在没有IndexRoute的写法了，采用exact的方式
  * 如果你的Home/User/NotFound是互斥的，那还要加上Switch
  *
+ * <NavBar />
  */
 
 class RouterMap extends React.Component {
@@ -23,9 +25,8 @@ class RouterMap extends React.Component {
     return (
       <Router>
         <div>
-          <NavBar />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={IndexPage} />
             <Route path="/user/:id" component={User} />
             <Route path="/react/todo" component={ReactTodoList} />
             <Route path="/react/redux/todo" component={ReduxTodo} />

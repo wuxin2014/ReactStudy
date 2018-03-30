@@ -10,7 +10,7 @@ const config = {
   },
   // 出口文件的配置项
   output: {
-    publicPath: '/public',
+    publicPath: '/',
     path: resolve(__dirname, 'dist'),
     filename: '[name].[hash].js'
   },
@@ -53,7 +53,7 @@ const config = {
   devServer: {
     port: 8080,
     contentBase: '/', // resolve(__dirname, 'dist'),//本地服务器所加载的页面所在的目录
-    publicPath: '/public',
+    publicPath: '/',
     inline: true, // 实时刷新
     hot: true, // 使用热加载插件 HotModuleReplacementPlugin
     open: true,
